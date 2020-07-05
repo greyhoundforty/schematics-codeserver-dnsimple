@@ -7,7 +7,9 @@ DEBIAN_FRONTEND=noninteractive apt-get -qqy -o Dpkg::Options::='--force-confdef'
 ## Install Code Server
 curl -fOL "https://github.com/cdr/code-server/releases/download/v${release}/code-server_${release}_amd64.deb"
 sudo dpkg -i "code-server_${release}_amd64.deb"
-systemctl --user enable --now code-server
+systemctl --user enable code-server
+systemctl --user start code-server
+
 
 ## Install Caddy
 echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" | tee -a /etc/apt/sources.list.d/caddy-fury.list
