@@ -13,3 +13,10 @@ resource "ibm_compute_vm_instance" "node" {
   ssh_key_ids          = [data.ibm_compute_ssh_key.deploymentKey.id]
 }
 
+resource "dnsimple_record" "code_server_dns" {
+  domain = var.domain
+  name   = var.hostname
+  value  = ibm_compute_vm_instance.node.ipv4_address
+  type   = "A"
+  ttl    = 3600
+}
