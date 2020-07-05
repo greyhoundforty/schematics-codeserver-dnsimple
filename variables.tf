@@ -57,3 +57,9 @@ variable "dnsimple_token" {
   type        = string
   default     = ""
 }
+
+variable "release" {
+  description = "Code Server version. See https://github.com/cdr/code-server/releases for options."
+  type        = string
+  default     = ""
+}
